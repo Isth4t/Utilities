@@ -352,7 +352,6 @@ Spawner.runJumpscare = function(config)
     local image1 = LoadCustomAsset(config.Image1)
     local image2 = LoadCustomAsset(config.Image2)
     local sound1, sound2 = nil, nil
-	Face.Image = image2
 
     if config.Sound1 then
         sound1 = loadSound(config.Sound1)
@@ -394,6 +393,7 @@ Spawner.runJumpscare = function(config)
     Face.Parent = Background
     Background.Parent = JumpscareGui
     JumpscareGui.Parent = CG
+	Face.Image = image2
     
     -- Tease
 
