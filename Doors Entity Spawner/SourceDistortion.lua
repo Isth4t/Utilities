@@ -360,6 +360,11 @@ Spawner.runJumpscare = function(config)
     if config.Sound2 then
         sound2 = loadSound(config.Sound2)
     end
+    
+    local distortEffect = Instance.new("DistortionSoundEffect")
+	distortEffect.Level = 9999999
+    distortEffect.Parent = sound2
+    distortEffect:Clone().Parent = sound1
 
     -- UI Construction
 
