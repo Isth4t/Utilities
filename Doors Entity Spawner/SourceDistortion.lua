@@ -382,7 +382,7 @@ Spawner.runJumpscare = function(config)
     Face.BackgroundTransparency = 1
     Face.Position = UDim2.new(0.5, 0, 0.5, 0)
     Face.ResampleMode = Enum.ResamplerMode.Pixelated
-    Face.Size = UDim2.new(0, 150, 0, 150)
+    Face.Size = UDim2.new(0, 50, 0, 50)
     Face.Image = image1
 
     Face.Parent = Background
@@ -413,31 +413,16 @@ Spawner.runJumpscare = function(config)
     
     -- Flashing
 
-    if config.Flashing[1] then
         task.spawn(function()
             while JumpscareGui.Parent do
                 Background.BackgroundColor3 = config.Flashing[2]
                 task.wait(math.random(25, 100) / 1000)
-                Background.BackgroundColor3 = Color3.new(0, 0, 0)
+                Background.BackgroundColor3 = Color3.new(1, 0, 0)
                 task.wait(math.random(25, 100) / 1000)
             end
         end)
-    end
     
     -- Shaking
-
-    if config.Shake then
-        task.spawn(function()
-            local origin = Face.Position
-
-            while JumpscareGui.Parent do
-                Face.Position = origin + UDim2.new(0, math.random(-10, 10), 0, math.random(-10, 10))
-                Face.Rotation = math.random(-5, 5)
-
-                task.wait()
-            end
-        end)
-    end
 
     -- Jumpscare
     
@@ -445,8 +430,8 @@ Spawner.runJumpscare = function(config)
     Face.Size = UDim2.new(0, maxTeaseSize, 0, maxTeaseSize)
     sound2:Play()
     
-    TS:Create(Face, TweenInfo.new(0.75), {Size = UDim2.new(0, absHeight * 3, 0,  absHeight * 3), ImageTransparency = 0.5}):Play()
-    task.wait(0.75)
+    TS:Create(Face, TweenInfo.new(0.5), {Size = UDim2.new(0, 5000, 0,  5000), ImageTransparency = 0.5}):Play()
+    task.wait(0.5)
     JumpscareGui:Destroy()
     
     if sound1 then
