@@ -432,7 +432,6 @@ Spawner.runJumpscare = function(config)
     -- Jumpscare
     
     Face.Image = image2
-    Face.Size = UDim2.new(0, maxTeaseSize, 0, maxTeaseSize)
     sound2:Play()
     
     TS:Create(Face, TweenInfo.new(1), {Size = UDim2.new(0, 500000, 0,  500000), ImageTransparency = 0.5}):Play()
